@@ -7,7 +7,15 @@
     <title>Document</title>
 </head>
 <body>
+    <button id="btn">test vconsole</button>
+    <script src="../dist/vconsole.min.js"></script>
     <script>
+        var vConsole = new VConsole();
+        console.log('Hello world');
+        var btn = document.getElementById('btn');
+        btn.onclick = function(){
+            console.log(Math.floor(Math.random(0, 1)*100));
+        };
         var name  = 'fang';
         var obj   = {
             [name]: '张'

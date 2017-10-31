@@ -148,7 +148,11 @@ npm install --save react
 ![react生命周期](https://github.com/fangfeiyue/React-Redux-Recruitment-software/blob/master/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
 
 ![react生命周期函数调用](https://github.com/fangfeiyue/React-Redux-Recruitment-software/blob/master/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
+### antd-mobile组件使用
+
 ## 传说中的彩蛋
+- [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
+
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 

@@ -1,0 +1,8 @@
+/// <reference types="react" />
+import React from 'react';
+export default class View extends React.Component<any, any> {
+    static defaultProps: {
+        Component: string;
+    };
+    render(): JSX.Element;
+}

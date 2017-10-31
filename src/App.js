@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Button } from 'antd-mobile';
+// import 'antd-mobile/dist/antd-mobile.css';
 
 class App extends Component{
   render(){
@@ -44,7 +46,7 @@ class Jun extends Component{
     return(
       <div>
         <div>大哥大{this.props.yingzhang}</div>
-        <button onClick={this.sayYes}>是否遵从命令</button>
+        <Button type="primary" onClick={this.sayYes}>是否遵从命令</Button>
         <ul>
           {
             this.state.solids.length>0 && this.state.solids.map((solid, index)=>(
