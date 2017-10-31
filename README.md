@@ -144,7 +144,8 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 ```
 npm install --save react
 ```
-
+- React生命周期
+[](https://github.com/fangfeiyue/React-Redux-Recruitment-software/blob/master/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
 ## 传说中的彩蛋
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
