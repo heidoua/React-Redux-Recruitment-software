@@ -10,3 +10,11 @@ git clone https://github.com/fangfeiyue/React-Redux-Recruitment-software.git
 npm install
 npm start
 ```
+## 技术选型
+- 版本控制：git
+- 开发工具：vscode
+- 软件开发过程：敏捷开发
+- 前端：React16 + Redux + React Router4
+- 后端：node.js + express + socket.io
+- 模块化方案：ES6 + Webpack
+- 前后端分离方式：完全分离，纯静态方式
