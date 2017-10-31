@@ -86,7 +86,7 @@ var obj = {
     }
 };
 ```
-### [Express](http://www.expressjs.com.cn/)
+### [Express基础应用](http://www.expressjs.com.cn/)
 - Express简单使用
     - 安装
     ```
@@ -129,6 +129,15 @@ var obj = {
     - app.get、app.post分别开发get和post接口
     - app.use使用模块
     - res.send（文本）、res.json（json）、res.sendfile（文件）响应不同的内容
+### [MongoDB](https://www.mongodb.com/)
+- 安装Homebrew (MAC),其他安装方式见[官网](https://www.mongodb.com/download-center#community)
+```
+brew install mongodb
+```
+如果报`brew: command not found`，可能是没有安装Homebrew，在终端执行
+```
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 ## 传说中的彩蛋
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
