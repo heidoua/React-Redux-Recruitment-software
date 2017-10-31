@@ -19,6 +19,34 @@ npm start
 - 模块化方案：ES6 + Webpack
 - 前后端分离方式：完全分离，纯静态方式
 ## 知识点总结
+### React开发环境
+- create-react-app的使用
+  - npm install -g create-react-app 
+  - npm create-react-app 创建的项目名称
+  - cd到项目目录，运行npm start 启动安装好的项目
+  - 浏览器输入localhost:3000
+  - npm install redux --save 安装第三方库
+  - npm run eject 弹出配置文件，可以自定义配置webpack
+  - 扩展package.json里的script字段，扩展 npm run命令
+遇到的问题：在运行`npm install redux --save`安装redux时，报错
+```
+Failed to parse json
+npm ERR! Unexpected token '/' at 8:5
+npm ERR!     // webpack、eslint的配置都在react-scripts
+npm ERR!     ^
+npm ERR! File: /Users/fangfeiyue/Desktop/GuoAn/recruitment/package.json
+npm ERR! Failed to parse package.json data.
+```
+原因：package.json文件中用了双斜杠注释
+```
+"dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    // webpack、eslint的配置都在react-scripts
+    "react-scripts": "1.0.15"
+},
+```
+解决办法：去掉双斜杠注释
 ## 传说中的彩蛋
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
