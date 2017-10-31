@@ -47,6 +47,29 @@ npm ERR! Failed to parse package.json data.
 },
 ```
 解决办法：去掉双斜杠注释
+- 对象赋值
+```
+//第一种
+var name  = 'fang';
+var obj   = {};
+obj[name] = 'fei';
+console.log(obj);//{fang: "fei"}
+//第二种
+var name  = 'fang';
+var obj   = {
+    name:'张'//取不到外面的变量
+};
+obj[name] = 'fei';
+console.log(obj);{name: "张", fang: "fei"}
+//第三种
+var name  = 'fang';
+var obj   = {
+    [name]: '张'
+};
+console.log(obj);//{fang: "张"}
+obj[name] = 'fei';
+console.log(obj);//{fang: "fei"}
+```
 ## 传说中的彩蛋
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
