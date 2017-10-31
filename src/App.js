@@ -19,6 +19,19 @@ class Jun extends Component{
       solids: ['护长','呼啦圈','三明治','武夷星']
     };
   }
+
+  componentWillMount = () => {
+    console.log('组件马上就要加载了');
+  }
+
+  componentDidMount = () => {
+    console.log('组件已经加载完毕');
+  }
+
+   
+  
+  
+
   sayYes = ()=>{
     alert('Yes,sir');
     this.setState({
@@ -26,7 +39,8 @@ class Jun extends Component{
     });
   }
   
-  render(){
+  render(){ 
+    console.log('组件正在加载');
     return(
       <div>
         <div>大哥大{this.props.yingzhang}</div>
