@@ -87,47 +87,48 @@ var obj = {
 };
 ```
 ### [Express](http://www.expressjs.com.cn/)
-- 安装
-```
-npm install express --save
-```
-- 简单使用--创建server.js，写入以下内容
-```
-const express = require('express');
-// 新建app
-const app = express();
+- Express简单使用
+    - 安装
+    ```
+    npm install express --save
+    ```
+    - 简单使用--创建server.js，写入以下内容
+    ```
+    const express = require('express');
+    // 新建app
+    const app = express();
 
-// 返回html 
-app.get('/', function(req, res){
-    res.send('<h1>hello express,I am learning</h1>');
-});
+    // 返回html 
+    app.get('/', function(req, res){
+        res.send('<h1>hello express,I am learning</h1>');
+    });
 
-// 返回json数据
-app.get('/data', function(req, res){
-    res.json({name: 'learning', type: 'react'});
-});
+    // 返回json数据
+    app.get('/data', function(req, res){
+        res.json({name: 'learning', type: 'react'});
+    });
 
-app.listen(9093, function(){
-    console.log('Node app start at port 9093');
-});
-```
-- 启动
-```
-node server.js
-```
-这样用有个缺点，每次修改server.js的文件内容都要停止服务然后再启动，这样太麻烦了，我们可以使用`nodemon`让node自动启动
-- 安装nodemon
-```
-npm install -g nodemon
-```
-- 使用nodemon
-```
-nodemon server.js
-```
-### Express常用的几个特性
-- app.get、app.post分别开发get和post接口
-- app.use使用模块
-- res.send（文本）、res.json（json）、res.sendfile（文件）响应不同的内容
+    app.listen(9093, function(){
+        console.log('Node app start at port 9093');
+    });
+    ```
+    - 启动
+    ```
+    node server.js
+    ```
+    这样用有个缺点，每次修改server.js的文件内容都要停止服务然后再启动，这样太麻烦了，我们可以使用`nodemon`让node自动启动
+    - 安装nodemon
+    ```
+    npm install -g nodemon
+    ```
+    - 使用nodemon
+    ```
+    nodemon server.js
+    ```
+- Express常用的几个特性
+    - app.get、app.post分别开发get和post接口
+    - app.use使用模块
+    - res.send（文本）、res.json（json）、res.sendfile（文件）响应不同的内容
 ## 传说中的彩蛋
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
