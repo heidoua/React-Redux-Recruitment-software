@@ -67,5 +67,5 @@ class Jun extends Component{
 }
 
 const Qi = ({lianzhang}) => (<div>{lianzhang}</div>);
-
+// 报错了
 export default App;
