@@ -120,11 +120,14 @@ node server.js
 ```
 npm install -g nodemon
 ```
-- 使用
+- 使用nodemon
 ```
 nodemon server.js
 ```
-
+### Express常用的几个特性
+- app.get、app.post分别开发get和post接口
+- app.use使用模块
+- res.send（文本）、res.json（json）、res.sendfile（文件）响应不同的内容
 ## 传说中的彩蛋
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
