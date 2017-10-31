@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'antd-mobile';
+import { Button, List } from 'antd-mobile';
 // import 'antd-mobile/dist/antd-mobile.css';
 
 class App extends Component{
@@ -47,12 +47,19 @@ class Jun extends Component{
       <div>
         <div>大哥大{this.props.yingzhang}</div>
         <Button type="primary" onClick={this.sayYes}>是否遵从命令</Button>
+        <List
+          renderHeader = {()=>'士兵列表'}
+        >
+           {
+              this.state.solids.map(v=>(
+                <List.item key={v}>
+                  {v}
+                </List.item>
+              ))
+            }
+        </List>
         <ul>
-          {
-            this.state.solids.length>0 && this.state.solids.map((solid, index)=>(
-              <li key={index}>{solid}</li>
-            ))
-          }
+
         </ul>
       </div>
     );
