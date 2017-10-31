@@ -69,6 +69,22 @@ var obj   = {
 console.log(obj);//{fang: "张"}
 obj[name] = 'fei';
 console.log(obj);//{fang: "fei"}
+//第四种
+var name = 'fang';
+var obj = {
+    name: name
+    print: function(){
+        console.log(this.name);
+    }
+}
+可简写为：
+var name = 'fang';
+var obj = {
+    name,
+    print(){
+        console.log(this.name);
+    }
+};
 ```
 ## 传说中的彩蛋
 ## 说明
