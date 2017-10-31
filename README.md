@@ -149,6 +149,41 @@ npm install --save react
 
 ![react生命周期函数调用](https://github.com/fangfeiyue/React-Redux-Recruitment-software/blob/master/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
 ### antd-mobile组件使用
+- 安装
+```
+npm install antd-mobile --save-dev
+```
+- js中引入需要的控件，这里以Button为例
+```
+import { Button} from 'antd-mobile';
+class Jun extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      solids: ['护长','呼啦圈','三明治','武夷星']
+    };
+  }
+  render(){ 
+    return <Button type="primary" onClick={this.sayYes}>是否遵从命令</Button>;
+  };
+}
+```
+- antd-mobile按需加载
+    - 安装babel-plugin-import
+    ```
+    npm install babel-plugin-import --save-dev
+    ```
+    - package.json中配置
+    ```
+    "babel": {
+        "presets": [
+        "react-app"
+        ],
+        "plugins": [
+        ["import", { "libraryName": "antd-mobile", "style": "css" }]
+        ]
+    }
+    ```
 
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息

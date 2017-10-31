@@ -51,12 +51,10 @@ class Jun extends Component{
           renderHeader = {()=>'士兵列表'}
         >
            {
-              this.state.solids.map(v=>(
-                <List.item key={v}>
-                  {v}
-                </List.item>
-              ))
-            }
+             this.state.solids.map(v => (
+               <List key={v}>{v}</List>
+             ))
+           }
         </List>
         <ul>
 
