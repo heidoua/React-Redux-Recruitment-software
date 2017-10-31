@@ -15,6 +15,20 @@
         console.log(obj);//{fang: "张"}
         obj[name] = 'fei';
         console.log(obj);//{fang: "fei"}
+        function testCoverage(){
+            if (0 === 1){
+                console.log('never run');
+                console.log('never run');
+                console.log('never run');
+                console.log('never run');
+                console.log('never run');
+                console.log('never run');
+            }else{
+                console.log('run');
+            }
+        }
+
+        testCoverage();
     </script>
 </body>
 </html>
