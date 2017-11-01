@@ -1,29 +1,15 @@
- import { createStore } from 'redux';
- 
- function counter(state=0, action){
-    switch(action.type){
-        case 'INCREASE':
-            return state + 1;
-        case 'DECREASE':
-            return state - 1;
-        default:
-            return state;
-    }
- }
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {createStore} from 'redux';
+import App from './App';
+import { counter } from './index.redux';
 
- function listener(){
-    //  获取state
-     const currState = store.getState();
-     console.log(`现在的值为${currState}`);   
-}
+const store = createStore(counter);
 
-//  新建store
- const store = createStore(counter);
+const render = () => { 
+    ReactDOM.render(<App store={store}/>, document.getElementById('root'));
+};
 
- store.subscribe(listener);
+render();
 
-//  派发事件，传递action
- store.dispatch({
-     type: 'INCREASE'
- });
- 
+store.subscribe(render);
