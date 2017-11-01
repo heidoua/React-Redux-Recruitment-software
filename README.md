@@ -444,6 +444,28 @@ ReactDOM.render(
     document.getElementById('root')
 );
 ``` 
+遇到的问题：程序运行报如下错误
+```
+Objects are not valid as a React child (found: object with keys {counter, auth}). If you meant to render a collection of children, use an array instead.
+```
+原因：根据报错分析，很显然我们迭代的是一个对象,其含有的key为{counter, auth}，找了半天代码才发现给num赋值的时候只写了state没有取出里面的counter
+```
+//App.js
+const mapStateToProps = (state, ownProps) => {
+    return {
+        num: state.counter
+    }
+}
+````
+解决办法：
+```
+//App.js
+const mapStateToProps = (state, ownProps) => {
+    return {
+        num: state.counter
+    }
+}
+```
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
 

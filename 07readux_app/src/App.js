@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { increase, decrease, increaseAsy } from './index.redux';
 const mapStateToProps = (state, ownProps) => {
     return {
-        num: state
+        num: state.counter
     }
 }
 @connect(mapStateToProps, {increase, decrease, increaseAsy})
