@@ -322,6 +322,42 @@ class Jun extends Component{
         window.devToolsExtension ? window.devToolsExtension() : f => f
     ));
     ```
+- React-Redux提供了Provider和connectl两个接口
+    - 安装
+    ```
+    npm install react-redux --save
+    ```
+    - Provider组件在应用最外层，传入store即可，只用一次就行
+    ```
+    //index.js
+    ...
+    import { Provider } from 'react-redux';
+    ...
+    ReactDOM.render(
+        <Provider store={store}>
+            <App/>
+        </Provider>,
+        document.getElementById('root')
+    );
+    ```
+    - Connect负责从外部获取组件需要的参数
+    ```
+    //App.js
+    ...
+    import { connect } from 'react-redux';
+    ...
+    const mapStateToProps = (state, ownProps) => {
+        return {
+            num: state
+        }
+    }
+    export default connect(
+        mapStateToProps, 
+        {increase, decrease, increaseAsy}
+    )(App);
+    ```
+    - Connect可以用装饰器的方式来写
+      
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
 
