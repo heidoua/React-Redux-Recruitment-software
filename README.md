@@ -189,7 +189,7 @@ class Jun extends Component{
  - 专注状态管理，和react解耦
  - 单一状态，单向数据流
  - 核心概念:store、state、action、reducer
-- 最基本的使用
+- redux最基本的使用
 ```
  import { createStore } from 'redux';
  
@@ -220,6 +220,70 @@ class Jun extends Component{
      type: 'INCREASE'
  });
 ```  
+- React和redux的简单结合
+    - 新建index.redux.js，输入以下内容
+    ```
+    const INCREASE = 'INCREASE';
+    const DECREASE = 'DECREASE';
+
+    export function counter(state = 0, action){
+        switch(action.type){
+            case INCREASE:
+                return state + 1;
+            case DECREASE:
+                return state - 1;
+            default: 
+                return state;
+        }
+    }
+
+    export const decrease = () => ({
+        type: DECREASE
+    });
+
+    export const increase = () => ({
+        type: INCREASE
+    })
+    ```
+    - APP.js
+    ```
+    import React, { Component } from 'react';
+    import { increase, decrease } from './index.redux';
+
+    class App extends Component{
+        render(){
+            const store = this.props.store;
+            const num = store.getState();
+            return (
+                <div>
+                    <div>现在的值为{num}</div>
+                    <button onClick={() => store.dispatch(increase())}>+</button>
+                    <button onClick={() => store.dispatch(decrease())}>-</button>
+                </div>
+            );
+        };
+    }
+
+    export default App;
+    ```
+    - index.js
+    ```
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import {createStore} from 'redux';
+    import App from './App';
+    import { counter } from './index.redux';
+
+    const store = createStore(counter);
+
+    const render = () => { 
+        ReactDOM.render(<App store={store}/>, document.getElementById('root'));
+    };
+
+    render();
+
+    store.subscribe(render);
+    ```
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
 
