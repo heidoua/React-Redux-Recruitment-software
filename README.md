@@ -291,6 +291,20 @@ class Jun extends Component{
         npm install redux-thunk --save
         ```
         - 使用applyMiddleWare开启thunk中间件
+        ```
+        // index.js
+        import {createStore, applyMiddleware} from 'redux';
+        import thunk from 'redux-thunk';
+        const store = createStore(counter, applyMiddleware(thunk));
+        //index.reducer.js
+        export const  increaseAsy = () => {
+            return dispatch => {
+                setTimeout(function() {  
+                    dispatch(increase());
+                }, 2000);     
+            }
+        }
+        ```
         - Action可以返回函数，使用dispatcht提交action
     - 使用react-reduxl连接react和redux
 
