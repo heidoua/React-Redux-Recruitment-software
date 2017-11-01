@@ -1,5 +1,5 @@
 const LOGIN = 'LOGIN';
-const LOGOUT = 'LOGIN';
+const LOGOUT = 'LOGOUT';
 
 export function auth(state={isAuth: false, user:'Fang'}, action){
     switch(action.type){
