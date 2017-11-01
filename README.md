@@ -394,7 +394,56 @@ class Jun extends Component{
         export default App;
         ``` 
 ### React-Router4
- 
+- url参数，Route组件参数可以用冒号标识参数
+- Redirect组件 跳转
+```
+// index.js
+import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom';
+ReactDOM.render(
+    <Provider store={store}>
+        <BrowserRouter>
+            <div>
+                <ul>
+                    <li><Link to='/'>test1</Link></li>
+                    <li><Link to='/test2'>test2</Link></li>
+                    <li><Link to='/test3'>test3</ Link></li>
+                </ul>
+                <Redirect path='/'></Redirect>
+                <Route path='/' exact component={App}></Route>
+                <Route path='/test2' component={TestRouter2}></Route>
+                <Route path='/test3' component={TestRouter3}></Route>
+            </div>
+        </BrowserRouter>
+    </Provider>,
+    document.getElementById('root')
+);
+```
+- Switch只渲染一个Route组件
+```
+// index.js
+import { BrowserRouter, Route, Link, Redirect, Switch  } from 'react-router-dom';
+ReactDOM.render(
+    <Provider store={store}>
+        <BrowserRouter>
+            <div>
+                <ul>
+                    <li><Link to='/'>test1</Link></li>
+                    <li><Link to='/test2'>test2</Link></li>
+                    <li><Link to='/test3'>test3</ Link></li>
+                </ul>
+                <Switch>
+                {/*只渲染第一次命中的,可用于处理一些特殊页面，比如404*/}
+                    <Route path='/' exact component={App}></Route>
+                    <Route path='/test2' component={TestRouter2}></Route>
+                    <Route path='/test3' component={TestRouter3}></Route>
+                    <Route path='/:location' component={TestRouterParam}></Route>
+                </Switch>
+            </div>
+        </BrowserRouter>
+    </Provider>,
+    document.getElementById('root')
+);
+``` 
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
 

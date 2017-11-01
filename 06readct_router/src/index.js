@@ -28,7 +28,7 @@ ReactDOM.render(
                     <li><Link to='/test2'>test2</Link></li>
                     <li><Link to='/test3'>test3</ Link></li>
                 </ul>
-                <Route path='/' exact component={App}></Route>
+                <Route path='/' component={App}></Route>
                 <Route path='/test2' component={TestRouter2}></Route>
                 <Route path='/test3' component={TestRouter3}></Route>
             </div>
