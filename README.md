@@ -186,9 +186,9 @@ class Jun extends Component{
     ```
 ### Redux状态管理与React-router 
 - Redux是什么
- - 专注状态管理，和react解耦
- - 单一状态，单向数据流
- - 核心概念:store、state、action、reducer
+    - 专注状态管理，和react解耦
+    - 单一状态，单向数据流
+    - 核心概念:store、state、action、reducer
 - redux最基本的使用
 ```
  import { createStore } from 'redux';
