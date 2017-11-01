@@ -284,6 +284,16 @@ class Jun extends Component{
 
     store.subscribe(render);
     ```
+- Redux处理异步的操作
+    - Redux处理异步需要redux-thunk插件
+        - 安装
+        ```
+        npm install redux-thunk --save
+        ```
+        - 使用applyMiddleWare开启thunk中间件
+        - Action可以返回函数，使用dispatcht提交action
+    - 使用react-reduxl连接react和redux
+
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
 

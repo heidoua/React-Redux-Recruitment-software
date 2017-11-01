@@ -1,8 +1,0 @@
-/// <reference types="react" />
-import React from 'react';
-export default class Text extends React.Component<any, any> {
-    static defaultProps: {
-        Component: string;
-    };
-    render(): JSX.Element;
-}
