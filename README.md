@@ -307,6 +307,7 @@ class Jun extends Component{
         ```
         - Action可以返回函数，使用dispatcht提交action
     - 使用react-reduxl连接react和redux
+- Redux调试工具的使用
 
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
