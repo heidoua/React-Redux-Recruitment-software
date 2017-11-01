@@ -220,7 +220,7 @@ class Jun extends Component{
      type: 'INCREASE'
  });
 ```  
-- React和redux的简单结合
+- React和redux的简单使用
     - 新建index.redux.js，输入以下内容
     ```
     const INCREASE = 'INCREASE';
