@@ -357,7 +357,42 @@ class Jun extends Component{
     )(App);
     ```
     - Connect可以用装饰器的方式来写
-      
+        - npm run eject弹出个性化配置
+        - npm install babel-plugin-transform-decorators-legacy插件
+        - package.json里babelj加plugins配置 
+        ```
+        "babel": {
+            "presets": [
+            "react-app"
+            ],
+            "plugins": [
+                "transform-decorators-legacy"
+            ]
+        }
+
+        //App.js
+        ....
+        const mapStateToProps = (state, ownProps) => {
+            return {
+                num: state
+            }
+        }
+        @connect(mapStateToProps, {increase, decrease, increaseAsy})
+        class App extends Component{
+            render(){
+                return (
+                    <div>
+                        <div>现在的值为{this.props.num}</div>
+                        <button onClick={this.props.increase}>+</button>
+                        <button onClick={this.props.decrease}>-</button>
+                        <button onClick={this.props.increaseAsy}>++</button>
+                    </div>
+                );
+            };
+        }
+
+        export default App;
+        ``` 
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
 
