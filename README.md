@@ -308,7 +308,19 @@ class Jun extends Component{
         - Action可以返回函数，使用dispatcht提交action
     - 使用react-reduxl连接react和redux
 - Redux调试工具的使用
-
+    - 新建store的使用判断window.devToolExtension
+    - 使用compose结合thunk和window.devToolExtension
+    - chrome调试窗redux选项卡，实时看到state
+    ```
+    // index.js
+    import {createStore, applyMiddleware, compose} from 'redux';
+    // 使用compose结合thunk和window.devToolExtension
+    const store = createStore(counter, compose(
+        applyMiddleware(thunk),
+        // 新建store的使用判断window.devToolExtension
+        window.devToolsExtension ? window.devToolsExtension() : f => f
+    ));
+    ```
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
 
