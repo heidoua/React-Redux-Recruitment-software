@@ -184,7 +184,42 @@ class Jun extends Component{
         ]
     }
     ```
+### Redux状态管理与React-router 
+- Redux是什么
+ - 专注状态管理，和react解耦
+ - 单一状态，单向数据流
+ - 核心概念:store、state、action、reducer
+- 最基本的使用
+```
+ import { createStore } from 'redux';
+ 
+ function counter(state=0, action){
+    switch(action.type){
+        case 'INCREASE':
+            return state + 1;
+        case 'DECREASE':
+            return state - 1;
+        default:
+            return state;
+    }
+ }
 
+ function listener(){
+    //  获取state
+     const currState = store.getState();
+     console.log(`现在的值为${currState}`);   
+}
+
+//  新建store
+ const store = createStore(counter);
+
+ store.subscribe(listener);
+
+//  派发事件，传递action
+ store.dispatch({
+     type: 'INCREASE'
+ });
+```  
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
 
