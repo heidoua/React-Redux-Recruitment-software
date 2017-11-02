@@ -5,15 +5,22 @@
  @withRouter
  class AuthRoute extends Component{
      componentDidMount(){
+         const publicList = ['/login', '/register']; 
+         const pathname = this.props.location.pathname; 
+
+         if (publicList.indexOf(pathname)!= -1){
+            return null ;
+         }
+
         // 获取用户信息
         axios.get('/user/info').then(res => {
             if (res.status === 200){
-                if (res.data.code == '0'){
+                if (res.data.code === '0'){
                     // 登录了
                 }else{ // 没有登录
-                    console.log('this.props.history', this.props.history);
+                    this.props.history.push('./login');
                 }
-                 console.log(res.data);
+                console.log(res.data);
             }
         });
      }

@@ -7,13 +7,24 @@ class RegisterContainer extends Component{
     constructor(props){
         super(props);
         this.state = {
+            user: '',
+            pwd: '',
+            repeatPwd: '',
             type: 'genius'
         };
     }
 
-    register = () => {
-        this.props.history.push('/register');
+    // 赋值
+    handleChange = (key, value) => {
+        this.setState({
+            [key]: value
+        });
     };
+
+    // 注册
+    handleRegister = () => {
+        console.log(this.state);
+    }; 
 
     render(){
         const RadioItem = Radio.RadioItem;
@@ -21,20 +32,39 @@ class RegisterContainer extends Component{
             <div>
                 <Logo/>
                 <List>
-                    <InputItem>用户名</InputItem>
+                    <InputItem
+                        onChange={v=>this.handleChange('user', v)}
+                    >用户名</InputItem>
                     <WhiteSpace/>
-                    <InputItem>密码</InputItem>
+                    <InputItem
+                        type="password"
+                        onChange={v=>this.handleChange('pwd', v)}
+                    >密码</InputItem>
                     <WhiteSpace/>
-                    <InputItem>确认密码</InputItem>
+                    <InputItem
+                        type="password"
+                        onChange={v=>this.handleChange('repeatPwd', v)}
+                    >确认密码</InputItem>
                     <WhiteSpace/>
-                    <RadioItem checked={this.state.type === 'genius'}>
+                    <RadioItem
+                        checked={this.state.type === 'genius'}
+                        onChange={()=>this.handleChange('type', 'genius')}
+                    >
                         牛人
                     </RadioItem>
-                    <RadioItem checked={this.state.type === 'boss'}>
+                    <RadioItem 
+                        checked={this.state.type === 'boss'}
+                        onChange={()=>this.handleChange('type', 'boss')}
+                    >
                         BOSS 
                     </RadioItem>
                     <WhiteSpace/>
-                    <Button type="primary">注册</Button>
+                    <Button 
+                        type="primary"
+                        onClick={this.handleRegister}
+                    >
+                        注册
+                    </Button>
                 </List>
             </div>
         );
