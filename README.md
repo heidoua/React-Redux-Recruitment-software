@@ -18,6 +18,21 @@ npm start
 - 后端：node.js + express + socket.io
 - 模块化方案：ES6 + Webpack
 - 前后端分离方式：完全分离，纯静态方式
+## 大纲
+### 页面文件结构
+- 组件放在component文件夹下面
+- 页面放在container文件夹下面
+- 页面入口获取用户信息，决定跳转到哪个页面
+### 基于cookie用户验证
+- express依赖cookie-parser,需要`npm install cookie-parser --save`
+### 大体流程
+```mermaid
+graph TD
+A[用户加载页面]-->|带cookie向后端获取用户信息|B[用户加载页面]
+B-->|未登陆|C[登陆页面]
+B-->|已登陆|D[App内部页面]
+C-->|登陆成功 前端储存cookie|D
+```
 ## 知识点总结
 ### React开发环境
 - create-react-app的使用
