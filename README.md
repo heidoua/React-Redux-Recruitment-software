@@ -519,6 +519,14 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 ```
+### 前后端连调,端口不一致，使用proxy配置转发,axios拦截器，统一loading处理
+- 使用axios发送异步请求
+    - 安装axios
+    ```
+    npm install axios --save
+    ```
+    - axios.interceptors设置拦截器，比如全局的loading
+    - axios.get,axios.post发送请求，返回promise对象
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
 - [GIF屏幕录制工具-licecap](https://www.cockos.com/licecap/)
