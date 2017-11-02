@@ -1,7 +1,10 @@
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import Logo from '../../component/logo/Logo';
+import { register } from '../../redux/user_redux';
 import { List, InputItem, WingBlank, WhiteSpace, Button, Radio } from 'antd-mobile';
 
+@connect(state=>state.user, {register})
 class RegisterContainer extends Component{
 
     constructor(props){
@@ -21,9 +24,9 @@ class RegisterContainer extends Component{
         });
     };
 
-    // 注册
+    // 注册 
     handleRegister = () => {
-        console.log(this.state);
+        this.props.register(this.state);
     }; 
 
     render(){
@@ -32,6 +35,7 @@ class RegisterContainer extends Component{
             <div>
                 <Logo/>
                 <List>
+                    {this.props.msg ? <p className='error-msg'>{this.props.msg}</p> : null}
                     <InputItem
                         onChange={v=>this.handleChange('user', v)}
                     >用户名</InputItem>

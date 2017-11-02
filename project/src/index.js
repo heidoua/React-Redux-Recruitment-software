@@ -1,4 +1,5 @@
 import './config';
+import './index.css';
 import React from 'react'
 import thunk from 'redux-thunk'
 import reducers from './reducer'
