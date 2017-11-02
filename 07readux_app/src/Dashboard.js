@@ -17,7 +17,7 @@ class Dashboard extends Component{
             <div>
                 {this.props.isAuth?<button onClick={this.props.logout}>注销</button>:null}
                 <ul>
-                    <li><Link to={`${match.url}/`}>简介</Link></li>
+                    <li><Link to={`${match.url}`}>简介</Link></li>
                     <li><Link to={`${match.url}/name`}>姓名</Link></li>
                     <li><Link to={`${match.url}/age`}>年龄</Link></li>
                 </ul>
