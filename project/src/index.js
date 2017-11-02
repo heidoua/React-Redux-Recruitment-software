@@ -8,14 +8,25 @@ import 'antd-mobile/dist/antd-mobile.css';
 import { createStore, applyMiddleware, compose } from 'redux'
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 
+// container
+import AuthRoute from './component/auth_route/AuthRote';
+import LoginContainer from './container/login/LoginContainer';
+import RegisterContainer from './container/register/RegisterContainer';
+
+
 const store = createStore(reducers, compose(
 	applyMiddleware(thunk),
 	window.devToolsExtension?window.devToolsExtension():f=>f
 ));
 
 ReactDom.render(
-	(<Provider store={store}>
+	(<Provider store={store}> 
 		<BrowserRouter>
+			<div>
+				<AuthRoute></AuthRoute>
+				<Route path='/login' component={LoginContainer}></Route>
+				<Route path='/register' component={RegisterContainer}></Route>
+			</div>
 		</BrowserRouter>
 	</Provider>),
 	document.getElementById('root')

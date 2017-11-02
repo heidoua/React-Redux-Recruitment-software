@@ -206,6 +206,62 @@ It looks like you are trying to access MongoDB over HTTP on the native driver po
 
 5.如果不进行近一步操作可以ctrl+c退出
 ```
+- Mongodb和nodejs的使用
+    - 安装Mongoose
+    ```
+    npm install mongoose --save
+    ```
+    - 使用
+    ```
+    //server.js
+    const mongoose = require('mongoose');
+
+    // 连接mongo
+    const DB_URL = 'mongodb://127.0.0.1:27017/test_mongo';
+    mongoose.connect(DB_URL);
+    mongoose.connection.on('connected', function(){
+        console.log('mongo connect success');
+    });
+
+    // 类似于mysql的表， mongo里面有文档、字段的概念
+    const User = mongoose.model('user', new mongoose.Schema({
+        user: {type:String, require: true},
+        age: {type: Number, require: true} 
+    }));
+
+    //新增数据
+    User.create({
+        user: 'xiao',
+        age: 18
+    }, function(err,  doc){
+        if (!err){
+            console.log(doc);
+        }else{
+            console.log(err);
+        }
+    });
+
+    // 删除数据
+    User.remove({age: 18}, function(err, doc){
+        console.log(doc);
+    });
+
+    // 更新数据
+    User.update({'user':'xiao'}, {'$set':{age:80}}, function(err, doc){
+       console.log(doc);
+    });
+
+    // 获取mongo的数据
+    User.find({user: 'xiao'}, function(err, doc){
+        res.json(doc);     
+    });
+
+    // 仅查找一条
+    User.findOne({user: 'xiao'}, function(err, doc){
+        res.json(doc);     
+    });
+    ```
+- [mongodb可视化工具](https://robomongo.org/download)
 ### React
 - React16是第一个核心代码重写的版本，整体API变化不大，主要变更了错误处理、生命周期、打包，对开发影响不是特别大
 - 安装
