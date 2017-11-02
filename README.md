@@ -468,7 +468,7 @@ const mapStateToProps = (state, ownProps) => {
 ```
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
-
+- [GIF屏幕录制工具-licecap](https://www.cockos.com/licecap/)
 ## 说明
 如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
