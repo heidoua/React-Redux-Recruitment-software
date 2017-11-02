@@ -183,6 +183,13 @@ Welcome to the MongoDB shell.
 > 1 + 1
 2
 > 
+
+4.这时，可以打开浏览器输入 http://127.0.0.1:27017/。
+
+浏览器中显示
+It looks like you are trying to access MongoDB over HTTP on the native driver port.
+
+5.如果不进行近一步操作可以ctrl+c退出
 ```
 ### React
 - React16是第一个核心代码重写的版本，整体API变化不大，主要变更了错误处理、生命周期、打包，对开发影响不是特别大
