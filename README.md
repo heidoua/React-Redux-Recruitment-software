@@ -138,6 +138,26 @@ brew install mongodb
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+
+用homebrew安装mongodb一直报错，切换源也不行，实在没有没办法只能手动安装了
+- 手动安装MongoDB
+```
+# 进入 /usr/local
+cd /usr/local
+
+# 下载
+sudo curl -O https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.4.2.tgz
+
+# 解压
+sudo tar -zxvf mongodb-osx-x86_64-3.4.2.tgz
+
+# 重命名为 mongodb 目录
+
+sudo mv mongodb-osx-x86_64-3.4.2 mongodb
+
+安装完成后，我们可以把 MongoDB 的二进制命令文件目录（安装目录/bin）添加到 PATH 路径中：
+export PATH=/usr/local/mongodb/bin:$PATH
+```
 ### React
 - React16是第一个核心代码重写的版本，整体API变化不大，主要变更了错误处理、生命周期、打包，对开发影响不是特别大
 - 安装
