@@ -526,6 +526,24 @@ const mapStateToProps = (state, ownProps) => {
     npm install axios --save
     ```
     - axios.interceptors设置拦截器，比如全局的loading
+    ```
+    //config.js
+    import axios from 'axios';
+    import { Toast } from 'antd-mobile';
+    // 拦截请求
+    axios.interceptors.request.use(function(config){
+        Toast.loading('加载中', 0);
+        return config;
+    });
+
+    // 拦截响应
+    axios.interceptors.response.use(function(config){
+        setTimeout(function() {
+            Toast.hide();
+        }, 2000);
+        return config;
+    });
+    ```
     - axios.get,axios.post发送请求，返回promise对象
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
