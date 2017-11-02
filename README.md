@@ -590,6 +590,34 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 ```
+
+- withRouter
+如果不是Route，输出this.props.history等路由相关的属性会报错，怎么才能输出这些属性呢？，可以用withRoter
+    - 使用
+    ```
+    import { withRouter } from 'react-router-dom';
+    @withRouter
+    class AuthRoute extends Component{
+        componentDidMount(){
+            // 获取用户信息
+            axios.get('/user/info').then(res => {
+                if (res.status === 200){
+                    if (res.data.code == '0'){
+                        // 登录了
+                    }else{ // 没有登录
+                        console.log('this.props.history', this.props.history);
+                    }
+                    console.log(res.data);
+                }
+            });
+        }
+
+        render(){
+            return <h2>验证用户</h2>
+        };
+    }
+    export default AuthRoute;
+    ```
 ### 前后端连调,端口不一致，使用proxy配置转发,axios拦截器，统一loading处理
 - 使用axios发送异步请求
     - 安装axios
