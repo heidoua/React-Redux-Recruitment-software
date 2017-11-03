@@ -1,9 +1,9 @@
-const express = require('express');
-const Router  = express.Router();
-const utils   = require('utility');
-const model   = require('./model');
-const User    = model.getModel('user');
-
+const express = require('express'),
+      Router  = express.Router(),
+      utils   = require('utility'),
+      model   = require('./model'),
+      User    = model.getModel('user'),
+      _filter = {'pwd': 0, '__v': 0};
 
 // 用户列表
 Router.get('/list', function(req, res){
@@ -32,17 +32,31 @@ Router.post('/register', function(req, res){
 // 用户登录
 Router.post('/login', function(req, res){
     const { user, pwd } = req.body;
-    User.findOne({user: user, pwd: md5Password(pwd)},{pwd: 0}, function(err, doc){
+    User.findOne({user: user, pwd: md5Password(pwd)}, _filter, function(err, doc){
         if (!doc){
             return res.json({code: 1, msg:'用户名或者密码错误'});
         }
-
+        // cookie保存登录状态
+        res.cookie('userId', doc._id);
         return res.json({code:0, data:doc});
     });
 });
 
 Router.get('/info', function(req, res){
-    return res.json({code: '1'});
+    const { userId } = req.cookies;
+
+    return res.json({code: 1});
+    // if (!userId){
+    //     return res.json({code: 1});
+    // }
+    // User.findOne({_id: userId}, function(req, res){
+    //     if (err){
+    //         return res.json({code: 1, msg: '后端出错了'});
+    //     }
+    //     if (doc){
+    //         return res.json({code:0, data: res});
+    //     }
+    // });
 });
 
 // 密码加密
