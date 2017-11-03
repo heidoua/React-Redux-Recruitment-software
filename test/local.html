@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        div{
+            height: 200%;
+            background: yellow;
+            position: relative;
+        }
+
+        span{
+            position: absolute;
+            bottom: 0;
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="div">
+        <span>
+            我是底部
+        </span>
+    </div>
+    <script>
+        let tt = document.documentElement.scrollTop || document.body.scrollTop;
+        setTimeout(function() {
+            document.documentElement.scrollTop = parseInt(localStorage.getItem('distance'));
+        }, 100);
+        var div = document.getElementById('div');
+
+        div.onclick = function(e){
+            alert('11');
+            // document.body.scrollTop = 667;
+            document.documentElement.scrollTop = 667;
+        };
+
+        window.onscroll = function(){
+            let t = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(t);
+            if (window.localStorage){
+                localStorage.setItem('distance', '667');
+            }
+        }
+    </script>
+</body>
+</html>

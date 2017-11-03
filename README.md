@@ -644,6 +644,10 @@ const mapStateToProps = (state, ownProps) => {
     });
     ```
     - axios.get,axios.post发送请求，返回promise对象
+- express使用post需要安装body-parser
+```
+npm install body-parser --save
+```
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
 - [GIF屏幕录制工具-licecap](https://www.cockos.com/licecap/)
