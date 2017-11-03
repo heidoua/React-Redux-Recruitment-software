@@ -1,6 +1,6 @@
-const utils = require('utility');
 const express = require('express');
 const Router  = express.Router();
+const utils   = require('utility');
 const model   = require('./model');
 const User    = model.getModel('user');
 
@@ -26,6 +26,18 @@ Router.post('/register', function(req, res){
             }
             return res.json({code: 0}); 
         });
+    });
+});
+
+// 用户登录
+Router.post('/login', function(req, res){
+    const { user, pwd } = req.body;
+    User.findOne({user: user, pwd: md5Password(pwd)},{pwd: 0}, function(err, doc){
+        if (!doc){
+            return res.json({code: 1, msg:'用户名或者密码错误'});
+        }
+
+        return res.json({code:0, data:doc});
     });
 });
 

@@ -669,6 +669,20 @@ function md5Password(pwd){
     return utils.md5(utils.md5(pwd+salt));
 }
 ```
+- 登录成功后，接口返回了登录成功的信息，但里面包含pwd，但pwd并不是我们想要的，此时需要接口过滤掉pwd,User.findOne方法中增加{pwd: 0}进行过滤`User.findOne({user: user, pwd: md5Password(pwd)},{pwd: 0}, function(err, doc){})`具体代码如下：
+```
+// 用户登录
+Router.post('/login', function(req, res){
+    const { user, pwd } = req.body;
+    User.findOne({user: user, pwd: md5Password(pwd)},{pwd: 0}, function(err, doc){
+        if (!doc){
+            return res.json({code: 1, msg:'用户名或者密码错误'});
+        }
+
+        return res.json({code:0, data:doc});
+    });
+});
+```
 
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
