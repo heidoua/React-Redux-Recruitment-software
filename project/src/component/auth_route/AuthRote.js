@@ -26,7 +26,7 @@
      }
 
      render(){
-         return <h2>验证用户</h2>
+         return null;
      };
  }
 

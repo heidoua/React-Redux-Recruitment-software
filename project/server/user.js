@@ -12,7 +12,10 @@ Router.get('/list', function(req, res){
 
 // 用户注册
 Router.post('/register', function(req, res){
-    const { user, pwd, type } = req.body.data;
+
+    console.log('register===>', res.body);
+
+    const { user, pwd, type } = req.body;
     User.findOne({user:user}, function(err, doc){
         if (doc){
             return res.json({code: 1, msg: '用户名重复'});
