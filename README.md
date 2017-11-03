@@ -618,7 +618,9 @@ const mapStateToProps = (state, ownProps) => {
     }
     export default AuthRoute;
     ```
-### 前后端连调,端口不一致，使用proxy配置转发,axios拦截器，统一loading处理
+### 前后端连调
+
+端口不一致，使用proxy配置转发,axios拦截器，统一loading处理
 - 使用axios发送异步请求
     - 安装axios
     ```
@@ -644,10 +646,30 @@ const mapStateToProps = (state, ownProps) => {
     });
     ```
     - axios.get,axios.post发送请求，返回promise对象
-- express使用post需要安装body-parser
+### 注册页面
+- 注册页面的接口使用了post接口，但是不能直接使用express.post，需要安装body-parser
+    - express使用post需要安装body-parser
+    ```
+    npm install body-parser --save
+    ```
+- 注册页面密码需要加密，这里使用md5加密用的utility进行加密
+    - 安装
+    ```
+    npm install utility --save
+    ```
+    - 使用
+    ```
+    const utils = require('utility');
+    const pwd = utils.md5('xxxx');
+    ```
+- 仅仅像上面一样进行加密密码还是不安全的，有些网站会存储常用的md5字符串如[CMD5](http://cmd5.com/),所以我们要采取更好的措施处理加密，这里我采取加盐和两层md5相结合的方式
 ```
-npm install body-parser --save
+function md5Password(pwd){
+    const salt = 'ffy_love_gdd_955_HJASDL  8@#@!$%$_^&^*^&^';
+    return utils.md5(utils.md5(pwd+salt));
+}
 ```
+
 ## 传说中的彩蛋
 - [vConsole](https://github.com/Tencent/vConsole)手机端调试必备神器，可输出console信息
 - [GIF屏幕录制工具-licecap](https://www.cockos.com/licecap/)

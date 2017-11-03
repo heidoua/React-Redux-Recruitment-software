@@ -1,14 +1,16 @@
 import axios from 'axios';
+import { getRedirectPath } from '../util';
 
 const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 const ERROR_MSG = 'ERROR_MSG';
 
 const initState = {
-    msg   : '',
-    pwd   : '',
-    user  : '',
-    type  : '',
-    isAuth: false
+    msg       : '',
+    pwd       : '',
+    user      : '',
+    type      : '',
+    isAuth    : false,
+    redirectTo: ''
 }; 
 
 // reducer
@@ -17,10 +19,11 @@ export function user(state=initState, action){
         case REGISTER_SUCCESS:
             return{
                 ...state,
-                msg: '',
-                isAuth: true,
+                msg       : '',
+                isAuth    : true,
+                redirectTo: getRedirectPath(action.data),
                 ...action.data
-            };
+            }; 
         case ERROR_MSG:
             return {
                 ...state,
@@ -58,7 +61,7 @@ export function register({user, pwd, repeatPwd,type}){
 
     return dispatch => {
         return axios.post('/user/register', {user, pwd, type}).then(res => {
-            if (res.status === 200 && res.code === 0){
+            if (res.status === 200 && res.data.code === 0){
                 dispatch(registerSuccess({user, pwd, type}));
             }else{ 
                 dispatch(errorMsg(res.data.msg));
