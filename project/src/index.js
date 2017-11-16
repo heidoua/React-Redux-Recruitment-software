@@ -13,6 +13,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import AuthRoute from './component/auth_route/AuthRote';
 import LoginContainer from './container/login/LoginContainer';
 import RegisterContainer from './container/register/RegisterContainer';
+import BossInfoContainer from './container/bossinfo/BossInfoContainer';
 
 
 const store = createStore(reducers, compose(
@@ -29,7 +30,7 @@ ReactDom.render(
 		<BrowserRouter>
 			<div>
 				<AuthRoute></AuthRoute>
-				<Route path='/boss' component={Boss}></Route>
+				<Route path="/bossinfo" component={BossInfoContainer}></Route>
 				<Route path='/login' component={LoginContainer}></Route>
 				<Route path='/register' component={RegisterContainer}></Route>
 			</div>
