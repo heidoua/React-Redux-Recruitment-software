@@ -29,7 +29,7 @@ Router.post('/register', function(req, res){
 
             // 过滤数据，这里我们只需要user,type,_id不需要其他的 
             const { user, type, _id } = d;
-            res.cookie('userid', _id);
+            res.cookie('userId', _id);
             return res.json({code: 0, data: {user, type, _id}});
         });
 
