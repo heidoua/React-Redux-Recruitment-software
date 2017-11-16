@@ -59,21 +59,21 @@ Router.post('/login', function(req, res){
 Router.get('/info', function(req, res){
     const { userId } = req.cookies;
 
-    return res.json({code: 1});
-    // if (!userId){
-    //     return res.json({code: 1});
-    // }
-    // User.findOne({_id: userId}, function(req, res){
-    //     if (err){
-    //         return res.json({code: 1, msg: '后端出错了'});
-    //     }
-    //     if (doc){
-    //         return res.json({code:0, data: res});
-    //     }
-    // });
+    if (!userId){
+        return res.json({code: 1});
+    }
+
+     User.findOne({_id: userId}, _filter , function(err, doc){
+        if (err){
+            return res.json({code: 1, msg: '后端出错了'});
+        } 
+        if (doc){
+            return res.json({code: 0, data: doc});
+        }
+    });
 });
 
-// 密码加密
+// 密码加密 
 function md5Password(pwd){
     const salt = 'ffy_love_gdd_955_HJASDL8@#@!$%$_^&^*^&^';
     return utils.md5(utils.md5(pwd+salt));
