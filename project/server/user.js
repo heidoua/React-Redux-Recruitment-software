@@ -12,6 +12,24 @@ Router.get('/list', function(req, res){
     });
 }); 
 
+Router.post('/update', function(req, res){
+    const userId = req.cookies.userId;
+
+    if (!userId){
+        return res.json({ code: 1 });
+    }
+
+    const body = req.body;
+    
+    User.findByIdAndUpdate(userId, body, function(err, doc){
+        const data = Object.assign({}, {
+            user: doc.user,
+            type: doc.type
+        }, body);
+        return {code: 0, data};    
+    });
+});
+
 // 用户注册
 Router.post('/register', function(req, res){
 
