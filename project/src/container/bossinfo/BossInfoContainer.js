@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import { NavBar, InputItem, TextareaItem} from 'antd-mobile';
+import { NavBar, InputItem, TextareaItem, Button } from 'antd-mobile';
 import AvatarSelector from '../../component/avatar_selector/AvatarSelector';
 class BossInfoContainer extends Component{
  
     constructor(props){
         super(props);
+
         this.state = {
-            title: ''
+			desc:'',
+            title:'',
+			money:'',
+			company:'',
         };
     }
     
@@ -16,25 +20,33 @@ class BossInfoContainer extends Component{
         });
     }
 
+    selectAvatar = (imgname)=>{
+        this.setState({
+            avatar: imgname
+        });
+    }
+
     render(){
         return (
             <div>
                 <NavBar
                 mode="dark"
             >Boss完善信息页</NavBar>
-            <AvatarSelector />
+            <AvatarSelector 
+                selectAvatar={this.selectAvatar}
+            />
             <InputItem
                 onChange={v=>this.onChange('title', v)}
             >
                 招聘职位
             </InputItem>
             <InputItem
-                onChange={v=>this.onChange('title', v)}
+                onChange={v=>this.onChange('company', v)}
             >
                 公司名称
             </InputItem>
             <InputItem
-                onChange={v=>this.onChange('title', v)}
+                onChange={v=>this.onChange('money', v)}
             >
                 职位薪资
             </InputItem>
@@ -42,9 +54,10 @@ class BossInfoContainer extends Component{
                 rows={3}
                 autoHeight
                 title="招聘要求"
-                onChange={v=>this.onChange('title', v)}
+                onChange={v=>this.onChange('desc', v)}
             >
             </TextareaItem>
+            <Button type="primary">保存</Button>
             </div>
         );
     };
