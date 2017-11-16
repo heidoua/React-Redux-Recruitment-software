@@ -1,38 +1,54 @@
 import axios from 'axios';
 import { getRedirectPath } from '../util';
 
-const ERROR_MSG = 'ERROR_MSG';
-const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 const LOAD_DATA = 'LOAD_DATA';
+const ERROR_MSG = 'ERROR_MSG';
+const AUTH_SUCCESS = 'AUTH_SUCCESS';
+// const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+// const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 
 const initState = {
     msg       : '',
     user      : '',
     type      : '',
-    isAuth    : false,
+    // isAuth    : false,
     redirectTo: ''
 }; 
+
+function authSuccess(data){
+    return {
+        type: AUTH_SUCCESS,
+        payload: data
+     }
+}
 
 // reducer
 export function user(state=initState, action){
     switch(action.type){
-        case REGISTER_SUCCESS:
+        case AUTH_SUCCESS:
             return{
                 ...state,
                 msg       : '',
-                isAuth    : true,
+                // isAuth    : true,
                 redirectTo: getRedirectPath(action.data),
                 ...action.data
-            }; 
-        case LOGIN_SUCCESS:
-            return{
-                ...state,
-                msg       : '',
-                isAuth    : true,
-                redirectTo: getRedirectPath(action.data),
-                ...action.data
-            }; 
+            };
+        // case REGISTER_SUCCESS:
+        //     return{
+        //         ...state,
+        //         msg       : '',
+        //         isAuth    : true,
+        //         redirectTo: getRedirectPath(action.data),
+        //         ...action.data
+        //     }; 
+        // case LOGIN_SUCCESS:
+        //     return{
+        //         ...state,
+        //         msg       : '',
+        //         isAuth    : true,
+        //         redirectTo: getRedirectPath(action.data),
+        //         ...action.data
+        //     }; 
         case ERROR_MSG:
             return {
                 ...state,
@@ -57,12 +73,12 @@ function errorMsg(msg){
     }
 }
 
-function loginSuccess(data){
-    return {
-        data,
-        type: LOGIN_SUCCESS
-    }
-}
+// function loginSuccess(data){
+//     return {
+//         data,
+//         type: LOGIN_SUCCESS
+//     }
+// }
 
 export function loadData(userInfo){
     return {
@@ -71,11 +87,21 @@ export function loadData(userInfo){
     };    
 }
 
-function registerSuccess(data){
-    return {
-        data,
-        type: REGISTER_SUCCESS
-    }
+// function registerSuccess(data){
+//     return {
+//         data,
+//         type: REGISTER_SUCCESS
+//     }
+// }
+
+export const update = (data) => (dispatch) => {
+    axios.post('user/update', data).then(res => {
+        if (res.status === 200 && res.code === 0){
+            dispatch(authSuccess(res.data.data));
+        }else{
+            dispatch(errorMsg(res.data.msg));
+        }
+    });
 }
 
 // 登录
@@ -87,7 +113,7 @@ export function login({user, pwd}){
     return dispatch => {
         return axios.post('/user/login', {user, pwd}).then(res => {
             if (res.status === 200 && res.data.code === 0){
-                dispatch(loginSuccess(res.data.data));
+                dispatch(authSuccess(res.data.data));
             }else{
                 dispatch(errorMsg(res.data.msg));
             }
@@ -108,7 +134,7 @@ export function register({user, pwd, repeatPwd,type}){
     return dispatch => {
         return axios.post('/user/register', {user, pwd, type}).then(res => {
             if (res.status === 200 && res.data.code === 0){
-                dispatch(registerSuccess({user, pwd, type}));
+                dispatch(authSuccess({user, pwd, type}));
             }else{ 
                 dispatch(errorMsg(res.data.msg));
             }
