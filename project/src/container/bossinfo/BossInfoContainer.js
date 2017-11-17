@@ -41,7 +41,7 @@ class BossInfoContainer extends Component{
             <div>
                 {redirect && redirect !== path ? <Redirect to={this.props.redirectTo}></Redirect> : null}
                 <NavBar
-                mode="dark"
+                    mode="dark"
                 >Boss完善信息页</NavBar>
                 <AvatarSelector 
                     selectAvatar={this.selectAvatar}

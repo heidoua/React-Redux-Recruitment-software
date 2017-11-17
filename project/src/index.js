@@ -14,6 +14,7 @@ import AuthRoute from './component/auth_route/AuthRote';
 import LoginContainer from './container/login/LoginContainer';
 import RegisterContainer from './container/register/RegisterContainer';
 import BossInfoContainer from './container/bossinfo/BossInfoContainer';
+import GeniusInfoContainer from './container/geniusinfo/GeniusInfoContainer';
 
 
 const store = createStore(reducers, compose(
@@ -31,6 +32,7 @@ ReactDom.render(
 			<div>
 				<AuthRoute></AuthRoute>
 				<Route path="/bossinfo" component={BossInfoContainer}></Route>
+				<Route path="/geniusinfo" component={GeniusInfoContainer}></Route>
 				<Route path='/login' component={LoginContainer}></Route>
 				<Route path='/register' component={RegisterContainer}></Route>
 			</div>
