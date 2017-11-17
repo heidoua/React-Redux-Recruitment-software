@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { Grid, List } from 'antd-mobile';
 
 const state = {
@@ -29,5 +31,9 @@ const AvatarSelector = ({ selectAvatar }) => (
         </List>
     </div>
 );
+
+AvatarSelector.PropTypes = {
+    selectAvatar: PropTypes.func.isRequired,
+};
 
 export default AvatarSelector;
