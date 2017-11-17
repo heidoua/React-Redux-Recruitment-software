@@ -39,7 +39,7 @@ class BossInfoContainer extends Component{
 
         return (
             <div>
-                {redirectTo && redirect !== path ? <Redirect to={this.props.redirectTo}></Redirect> : null}
+                {redirect && redirect !== path ? <Redirect to={this.props.redirectTo}></Redirect> : null}
                 <NavBar
                 mode="dark"
                 >Boss完善信息页</NavBar>
