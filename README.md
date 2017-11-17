@@ -260,6 +260,15 @@ It looks like you are trying to access MongoDB over HTTP on the native driver po
     User.findOne({user: 'xiao'}, function(err, doc){
         res.json(doc);     
     });
+
+    //查找并更新
+    User.findByIdAndUpdate(userId, body, function(err, doc){
+        const data = Object.assign({}, {
+            user: doc.user,
+            type: doc.type
+        }, body);
+        return {code: 0, data};    
+    });
     ```
 - [mongodb可视化工具](https://robomongo.org/download)
 ### React

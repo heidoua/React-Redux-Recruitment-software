@@ -26,7 +26,8 @@ Router.post('/update', function(req, res){
             user: doc.user,
             type: doc.type
         }, body);
-        return {code: 0, data};    
+        
+        return res.json({code: 0, data});    
     });
 });
 

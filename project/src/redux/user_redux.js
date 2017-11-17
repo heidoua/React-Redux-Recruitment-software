@@ -96,7 +96,7 @@ export function loadData(userInfo){
 
 export const update = (data) => (dispatch) => {
     axios.post('user/update', data).then(res => {
-        if (res.status === 200 && res.code === 0){
+        if (res.status === 200 && res.data.code === 0){
             dispatch(authSuccess(res.data.data));
         }else{
             dispatch(errorMsg(res.data.msg));
