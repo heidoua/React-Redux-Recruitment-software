@@ -31,24 +31,8 @@ export function user(state=initState, action){
                 msg       : '',
                 // isAuth    : true,
                 redirectTo: getRedirectPath(action.payload),
-                ...action.data
+                ...action.payload
             };
-        // case REGISTER_SUCCESS:
-        //     return{
-        //         ...state,
-        //         msg       : '',
-        //         isAuth    : true,
-        //         redirectTo: getRedirectPath(action.data),
-        //         ...action.data
-        //     }; 
-        // case LOGIN_SUCCESS:
-        //     return{
-        //         ...state,
-        //         msg       : '',
-        //         isAuth    : true,
-        //         redirectTo: getRedirectPath(action.data),
-        //         ...action.data
-        //     }; 
         case ERROR_MSG:
             return {
                 ...state,
