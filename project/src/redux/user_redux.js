@@ -30,7 +30,7 @@ export function user(state=initState, action){
                 ...state,
                 msg       : '',
                 // isAuth    : true,
-                redirectTo: getRedirectPath(action.data),
+                redirectTo: getRedirectPath(action.payload),
                 ...action.data
             };
         // case REGISTER_SUCCESS:
