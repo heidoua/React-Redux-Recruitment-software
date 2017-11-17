@@ -11,6 +11,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 
 // container
 import AuthRoute from './component/auth_route/AuthRote';
+import DashBoard from './component/dashboard/DashBoard';
 import LoginContainer from './container/login/LoginContainer';
 import RegisterContainer from './container/register/RegisterContainer';
 import BossInfoContainer from './container/bossinfo/BossInfoContainer';
@@ -31,10 +32,13 @@ ReactDom.render(
 		<BrowserRouter>
 			<div>
 				<AuthRoute></AuthRoute>
-				<Route path="/bossinfo" component={BossInfoContainer}></Route>
-				<Route path="/geniusinfo" component={GeniusInfoContainer}></Route>
-				<Route path='/login' component={LoginContainer}></Route>
-				<Route path='/register' component={RegisterContainer}></Route>
+				<Switch>
+					<Route path="/bossinfo" component={BossInfoContainer}></Route>
+					<Route path="/geniusinfo" component={GeniusInfoContainer}></Route>
+					<Route path='/login' component={LoginContainer}></Route>
+					<Route path='/register' component={RegisterContainer}></Route>
+					<Route component={DashBoard}></Route>
+				</Switch>
 			</div>
 		</BrowserRouter>
 	</Provider>),
