@@ -716,6 +716,8 @@ Router.post('/login', function(req, res){
 
 QQ：294925572
 
+QQ技术交流群：678941904 ( 欢迎加入此群，与志同道合的朋友一起进步 )
+
 微信：
 
 ![XinShiJieDeHuHuan](http://note.youdao.com/yws/public/resource/c2361265179a03449f6d52397fd50033/xmlnote/100D55934BB446839482D3EA0CDC3E8D/17820)
